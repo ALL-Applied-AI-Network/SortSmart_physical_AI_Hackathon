@@ -1,0 +1,7 @@
+{
+  "images_by_split": {
+    "train": 105,
+    "val": 14,
+    "test": 5
+  }
+}

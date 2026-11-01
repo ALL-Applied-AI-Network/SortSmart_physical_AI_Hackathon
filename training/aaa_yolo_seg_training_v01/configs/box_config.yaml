@@ -1,0 +1,34 @@
+box:
+  purpose: fixed_aaa_collection_bin
+  capacity_batteries: 14
+  internal_size_m:
+    length: 0.100
+    width: 0.080
+    height: 0.035
+  suggested_wall_thickness_m: 0.002
+  approximate_external_size_m:
+    length: 0.104
+    width: 0.084
+    height: 0.040
+  placement_hint: upper_left_in_table_camera_view
+
+  # Fill these after checking reachability on the real robot.
+  drop_pose_robot:
+    x_m: null
+    y_m: null
+    z_above_m: null
+    z_release_m: null
+    yaw_deg: 0.0
+
+  # Fill after the fixed box is installed and a table-camera frame is captured.
+  no_pick_roi_pixels:
+    x_min: null
+    y_min: null
+    x_max: null
+    y_max: null
+
+  policy:
+    detect_inside_box: false
+    allow_grasp_inside_box: false
+    fixed_pose_required: true
+

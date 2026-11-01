@@ -1,0 +1,21 @@
+{
+  "images": 68,
+  "by_split": {
+    "train": 49,
+    "val": 14,
+    "test": 5
+  },
+  "by_camera": {
+    "wrist": 46,
+    "table": 11,
+    "side": 11
+  },
+  "by_source": {
+    "old": 35,
+    "new": 33
+  },
+  "classes": {
+    "0": "aaa_battery",
+    "1": "battery_drop_zone"
+  }
+}

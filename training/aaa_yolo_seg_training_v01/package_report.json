@@ -1,0 +1,26 @@
+{
+  "package": "aaa_yolo_seg_training_v01",
+  "model_baseline": "yoloe-26n-seg.pt",
+  "model_finetune": "yolo26n-seg.pt",
+  "class_names": [
+    "aaa_battery"
+  ],
+  "image_count": 210,
+  "source_counts": {
+    "phone_primary": 106,
+    "phone_additional": 60,
+    "robot_table": 44
+  },
+  "expected_split_after_review": {
+    "train": 168,
+    "validation": 42,
+    "test": 0
+  },
+  "labels_included": false,
+  "label_status": "Run zero-shot pseudo-labeling and complete human correction before training.",
+  "collection_box_internal_mm": [
+    100,
+    80,
+    35
+  ]
+}

@@ -1,0 +1,7 @@
+path: .
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: aaa_battery
+  1: battery_drop_zone

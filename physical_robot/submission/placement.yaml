@@ -1,0 +1,20 @@
+# Illustrative layouts for the final AAA pick/place task.
+# Confirm all coordinates with the physical cell operator before use.
+
+rollouts:
+  - objects:
+      aaa_battery: [340, -120, 7]
+      recovery_bowl: [280, 180]
+      distractor:
+        - [420, -60, 35]
+        - [310, 90, 110]
+    prompt: Put the AAA battery into the recovery bowl.
+
+  - objects:
+      aaa_battery: [370, 20, 142]
+      recovery_bowl: [280, 180]
+      distractor:
+        - [300, -140, 20]
+        - [440, 80, 75]
+    prompt: Put the AAA battery into the recovery bowl.
+

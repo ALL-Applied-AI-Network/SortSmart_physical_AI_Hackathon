@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.venv-*/
+venv/
+
+# Local secrets and cell credentials
+.env
+.env.*
+.request.json
+request.json
+*.pem
+*.key
+
+# Generated datasets, recordings and experiment outputs
+runs/
+outputs/
+results/
+captured_images/
+captured_*/
+battery_detection_runs/
+table_depth_diagnostics/
+wrist_*_diagnostics/
+physical_pick_place_*_runs/
+lerobot/
+videos/
+frames/
+*.mp4
+*.mov
+*.avi
+*.webm
+
+# Training data and generated labels are intentionally external
+images/
+labels/
+raw_images/
+draft_labels*/
+datasets/
+
+# Model artifacts: keep only the documented release checkpoint
+*.pt
+!models/aaa_yolo26s_best.pt
+*.onnx
+*.engine
+
+# OS and editor files
+.DS_Store
+._*
+.idea/
+.vscode/
+*~
+

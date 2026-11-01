@@ -1,0 +1,163 @@
+# Where the objects go in each rollout, and what your policy is told. Sent with: uv run run.py --submit
+#
+# Leave it empty only if your task uses our default scene: 8 screws and the yellow bin (as in the twin), the same
+# every rollout. For any other objects or layout, fill it in:
+#   - objects and layout "same" in submission.yaml: one entry, used for every rollout;
+#   - objects or layout "different": one entry per rollout, as many as "rollouts" (10 by default).
+# Positions: x, y in mm in the robot frame (the same x, y as obs["tcp_pose"]), and an optional yaw in degrees;
+# table_plan.png shows the axes and the table. A screw's position is its head, and its yaw points to its tip.
+# Several objects of one kind: a list of positions, e.g. screw: [[420, -100, 30], [380, 50, 90]]
+#
+# rollouts:
+#   - objects:                                     # rollout 1
+#       cube: [420, -100, 30]
+#       bin: [510, 110]
+#     prompt: Put the cube into the yellow bin.    # optional; default: task in submission.yaml
+#   - objects:                                     # rollout 2
+#       cube: [380, 50, 90]
+#       bin: [480, -150]
+#   ...                                            # up to rollout 10
+
+rollouts:
+  - objects:  # 1: 5 x 7/11, 5 x Amazon, plus distractors
+      aaa_7eleven:
+        - [300, -150, 10]
+        - [360, -150, 42]
+        - [420, -150, 78]
+        - [330,  -70, 118]
+        - [390,  -70, 162]
+      aaa_amazon:
+        - [300,   20, 25]
+        - [360,   20, 58]
+        - [420,   20, 96]
+        - [330,  110, 132]
+        - [390,  110, 174]
+      distractor:
+        - [270, -60, 35]
+        - [460, -80, 105]
+        - [280, 120, 70]
+        - [460, 120, 150]
+    prompt: Record RGB observations of both AAA brands among distractors; do not move the robot.
+
+  - objects:  # 2: 2 x 7/11, 5 x Amazon, plus distractors
+      aaa_7eleven:
+        - [315, -125, 18]
+        - [430,   85, 137]
+      aaa_amazon:
+        - [380, -145, 50]
+        - [450,  -85, 92]
+        - [300,  -20, 121]
+        - [370,   35, 156]
+        - [315,  120, 72]
+      distractor:
+        - [270,  70, 20]
+        - [420, -10, 65]
+        - [475, 130, 115]
+        - [270, -150, 160]
+    prompt: Record a scene containing more Amazon than 7/11 AAA batteries.
+
+  - objects:  # 3: 5 x 7/11, 2 x Amazon, plus distractors
+      aaa_7eleven:
+        - [290, -135, 5]
+        - [355, -120, 36]
+        - [430, -140, 81]
+        - [325,   25, 124]
+        - [415,   70, 169]
+      aaa_amazon:
+        - [285,  105, 55]
+        - [465,   -5, 145]
+      distractor:
+        - [385, -35, 15]
+        - [260, -55, 90]
+        - [475, 125, 125]
+        - [350, 135, 175]
+    prompt: Record a scene containing more 7/11 than Amazon AAA batteries.
+
+  - objects:  # 4: only 5 x 7/11, plus distractors
+      aaa_7eleven:
+        - [295, -125, 12]
+        - [380, -145, 47]
+        - [445,  -65, 84]
+        - [315,   55, 128]
+        - [405,  105, 171]
+      distractor:
+        - [260, -30, 30]
+        - [365, -20, 70]
+        - [470,  35, 110]
+        - [275, 130, 155]
+    prompt: Record 7/11 AAA batteries with distractors and no Amazon batteries.
+
+  - objects:  # 5: only 5 x Amazon, plus distractors
+      aaa_amazon:
+        - [310, -145, 22]
+        - [405, -125, 61]
+        - [455,  -30, 98]
+        - [295,   45, 139]
+        - [390,  115, 176]
+      distractor:
+        - [260, -75, 5]
+        - [355, -45, 50]
+        - [470,  95, 125]
+        - [285, 135, 165]
+    prompt: Record Amazon AAA batteries with distractors and no 7/11 batteries.
+
+  - objects:  # 6: one of each brand, many distractors
+      aaa_7eleven:
+        - [335, -65, 38]
+      aaa_amazon:
+        - [420,  75, 146]
+      distractor:
+        - [270, -145, 10]
+        - [350, -145, 55]
+        - [440, -130, 100]
+        - [275,  -35, 135]
+        - [455,  -20, 170]
+        - [285,   85, 75]
+        - [350,  125, 115]
+        - [475,  135, 25]
+    prompt: Record two AAA batteries among many distractors.
+
+  - objects:  # 7: 3 of each brand across the camera view
+      aaa_7eleven:
+        - [270, -150, 8]
+        - [455,  -95, 76]
+        - [300,  130, 151]
+      aaa_amazon:
+        - [390, -145, 35]
+        - [285,  -15, 108]
+        - [460,  125, 178]
+      distractor:
+        - [365, -40, 20]
+        - [435,  25, 62]
+        - [365, 105, 132]
+    prompt: Record both AAA brands distributed across different image regions.
+
+  - objects:  # 8: mixed brands placed closer together without overlap
+      aaa_7eleven:
+        - [325, -80, 12]
+        - [375, -75, 52]
+        - [425, -70, 95]
+        - [350,  15, 135]
+      aaa_amazon:
+        - [400,  10, 28]
+        - [325,  95, 72]
+        - [380, 100, 118]
+        - [435,  95, 166]
+      distractor:
+        - [270, -135, 45]
+        - [475, -120, 105]
+        - [270,  120, 150]
+    prompt: Record a dense mixed-brand scene with close spacing but no overlap.
+
+  - objects:  # 9: negative scene, distractors only
+      distractor:
+        - [275, -145, 5]
+        - [355, -135, 42]
+        - [445, -125, 80]
+        - [300,  -35, 118]
+        - [390,  -25, 155]
+        - [470,   20, 25]
+        - [285,   90, 68]
+        - [370,  120, 110]
+        - [455,  130, 165]
+    prompt: Record a negative scene containing distractors and no batteries.

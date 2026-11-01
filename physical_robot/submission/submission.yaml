@@ -1,0 +1,16 @@
+# Final SortSmart AAA pick/place task description.
+# Review the current cell layout and safety requirements before submitting.
+
+team: SortSmart
+policy: physical_guarded_yolo_pick_place_v10
+model_type: Hybrid
+
+task_id: sortsmart-aaa-pick-place
+task: Detect an AAA battery among distractors, grasp it using calibrated RGB/depth safety gates, and place it in the recovery bowl.
+
+objects: different
+layout: different
+rollouts: 10
+
+custom_hardware: Participant-supplied Amazon Basics and 24/7 Life AAA batteries; stock gripper fingers were used during the reported physical trial. Rubberized or 3D-printed high-friction fingers are recommended for reliable retention.
+
